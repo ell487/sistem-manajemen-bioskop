@@ -8,12 +8,27 @@ Route::get('/', function () {
 })->name('landing-page');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return redirect('/admin');
+})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    });
+
+    Route::get('/resepsionis', function () {
+        return view('resepsionis.dashboard');
+    });
+
+    Route::get('/customer', function () {
+        return view('customer.dashboard');
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

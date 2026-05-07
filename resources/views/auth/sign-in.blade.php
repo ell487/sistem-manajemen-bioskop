@@ -37,18 +37,31 @@
               <hr class="my-8 w-100 d-block">
               <p class="mb-0 fs-3 bg-body px-3 position-absolute top-50 start-50 translate-middle">OR</p>
             </div>
-            <form class="d-flex flex-column gap-3">
-              <div>
-                <input type="email" class="form-control border-bottom" id="exampleInputEmail1" placeholder="Email"
-                  aria-describedby="emailHelp">
-              </div>
-              <div>
-                <input type="password" class="form-control border-bottom" id="inputPassword" placeholder="Password">
-              </div>
-
-              <a href="{{ route('login') }}" class="btn btn-dark w-100 justify-content-center py-2 fw-medium my-7 fs-4 lh-lg">
-                Sign In
-              </a>
+           <form method="POST" action="{{ route('login') }}" class="d-flex flex-column gap-3">
+                @csrf
+                <div>
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control border-bottom"
+                        placeholder="Email"
+                        required
+                    >
+                </div>
+                <div>
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control border-bottom"
+                        placeholder="Password"
+                        required
+                    >
+                </div>
+                <button
+                    type="submit"
+                    class="btn btn-dark w-100 justify-content-center py-2 fw-medium my-7 fs-4 lh-lg"
+                >Sign In
+                </button>
             </form>
             <a class="text-center mb-1 d-block text-dark fw-medium" href="#">Forget Password?</a>
             <p class="mb-0 fw-medium text-center">Not a member yet? <a class="text-dark" href="{{route("register")}}">Sign Up</a>
@@ -61,7 +74,7 @@
   </div>
 
   <div class="get-template hstack gap-2">
-    
+
     <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0"
       id="scrollToTopBtn">
       <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
