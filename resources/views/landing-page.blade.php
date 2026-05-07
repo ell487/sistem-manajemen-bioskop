@@ -87,10 +87,6 @@
                       Up</a>
                   </div>
                 </div>
-                <div>
-                  <a class="text-dark" href="tel:+1-212-456-7890">+1-212-456-7890</a>
-                  <a class="fs-8 text-dark fw-bold" href="mailto:info@wrappixel.com">info@wrappixel.com</a>
-                </div>
               </div>
             </ul>
           </div>
